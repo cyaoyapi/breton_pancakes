@@ -1,4 +1,5 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -25,6 +26,8 @@ def article_redirect(request, article_id):
 		return redirect("https://google.com")
 	elif article_id > 100:
 		return redirect(view_article, article_id=article_id)
+	elif article_id > 50:
+		return HttpResponseRedirect(reverse('article', kwargs={'article_id':article_id}))
 	else:
 		return redirect('article', article_id=article_id)
 

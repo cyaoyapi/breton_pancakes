@@ -24,4 +24,5 @@ def view_articles_by_tag(request, tag):
 def view_articles_by_month(request, year, month):
 	"""Basic view to display a list of articles by given year and month."""
 
-	return HttpResponse(f"You want the list of articles of : <strong>{year}/{month}</strong>") 
+	return HttpResponse(f"You want the list of articles of : <strong>{month}/{year}</strong>") 
+

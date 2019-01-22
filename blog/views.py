@@ -10,3 +10,8 @@ def home(request):
 	<p>The Breton pancakes are the best.<p/>
 	"""
 	return HttpResponse(welcome_msg) 
+
+def view_article(request, article_id):
+	"""Basic view to display an article."""
+
+	return HttpResponse(f"You want to get article N° {article_id}") 

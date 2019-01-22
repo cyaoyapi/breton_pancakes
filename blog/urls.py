@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
 	path('', views.home),
-	path('article/<article_id>', views.view_article),
+	path('article/<int:article_id>', views.view_article),
 	path('articles/tag/<str:tag>', views.view_articles_by_tag),
 	re_path('^articles/(?P<year>\d{4})/(?P<month>\d{1,2})', views.view_articles_by_month),
 ]

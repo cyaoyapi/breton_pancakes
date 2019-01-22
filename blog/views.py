@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 
 # Create your views here.
@@ -14,6 +14,8 @@ def home(request):
 def view_article(request, article_id):
 	"""Basic view to display an article."""
 
+	if article_id > 100:
+		raise Http404
 	return HttpResponse(f"You want to get article N° <strong>{article_id}</strong>") 
 
 def view_articles_by_tag(request, tag):

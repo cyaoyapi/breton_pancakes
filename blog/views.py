@@ -14,4 +14,14 @@ def home(request):
 def view_article(request, article_id):
 	"""Basic view to display an article."""
 
-	return HttpResponse(f"You want to get article N° {article_id}") 
+	return HttpResponse(f"You want to get article N° <strong>{article_id}</strong>") 
+
+def view_articles_by_tag(request, tag):
+	"""Basic view to display a list of articles by given tag."""
+
+	return HttpResponse(f"You want the list of articles with tag : <strong>{tag}</strong>") 
+
+def view_articles_by_month(request, year, month):
+	"""Basic view to display a list of articles by given year and month."""
+
+	return HttpResponse(f"You want the list of articles of : <strong>{year}/{month}</strong>") 

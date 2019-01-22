@@ -1,5 +1,5 @@
 from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -17,6 +17,16 @@ def view_article(request, article_id):
 	if article_id > 100:
 		raise Http404
 	return HttpResponse(f"You want to get article N° <strong>{article_id}</strong>") 
+
+def article_redirect(request, article_id):
+	"""Basic view to test redirection."""
+
+	if article_id > 1000:
+		return redirect("https://google.com")
+	elif article_id > 100:
+		return redirect(view_article, article_id=article_id)
+	else:
+		return redirect('article', article_id=article_id)
 
 def view_articles_by_tag(request, tag):
 	"""Basic view to display a list of articles by given tag."""
